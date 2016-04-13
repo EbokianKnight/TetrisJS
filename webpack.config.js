@@ -1,8 +1,8 @@
 module.exports = {
   context: __dirname,
-  entry: "./frontend/setup.js",
+  entry: "./frontend/setup.jsx",
   output: {
-    path: "./frontend/",
+    path: "./assets/",
     filename: "bundle.js"
   },
   module: {
