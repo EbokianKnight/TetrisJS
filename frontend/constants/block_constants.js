@@ -1,0 +1,4 @@
+module.exports = {
+  QUEUE_BLOCKS: 'QUEUE_BLOCKS',
+  CAPTURE_BLOCK: 'CAPTURE_BLOCK'
+};
