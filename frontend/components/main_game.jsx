@@ -9,7 +9,8 @@ var MainGame = React.createClass({
 
   getInitialState: function() {
     return {
-      status: "pause"
+      status: "pause",
+      held: "I"
     };
   },
 
@@ -28,13 +29,23 @@ var MainGame = React.createClass({
     this.game.style.opacity = 0;
   },
 
+  swapBlock: function () {
+    if (this.state.status === "pause") return;
+    //this.setState({ held: BlockStore.getHeld() });
+    if (this.state.held === "I") {
+      this.setState({ held: "J" });
+    } else {
+      this.setState({ held: "I" });
+    }
+  },
+
   render: function() {
     var klass = this.state.status === "play" ? "play" : "pause";
     return (
       <div className='game-container'>
         <aside className='control-board'>
           <Timer status={this.state.status}/>
-          <div className="block-item sidebar-item push"></div>
+          <BlockItem block={this.state.held} swap={this.swapBlock}/>
           <SoundBar />
           <div className='sidebar-item image drop-arrow push'></div>
           <div className='sidebar-item image counter push'></div>
